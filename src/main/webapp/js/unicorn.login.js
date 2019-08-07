@@ -5,18 +5,27 @@
 $(document).ready(function(){
 
 	var login = $('#loginform');
+	var phone = $('#phoneform');
 	var recover = $('#recoverform');
 	var speed = 400;
 
-	$('#to-recover').click(function(){
+	$('.to-recover').click(function(){
+        phone.fadeTo(speed,0.01).css('z-index','100');
 		login.fadeTo(speed,0.01).css('z-index','100');
 		recover.fadeTo(speed,1).css('z-index','200');
 	});
 
-	$('#to-login').click(function(){
+	$('.to-login').click(function(){
 		recover.fadeTo(speed,0.01).css('z-index','100');
+        phone.fadeTo(speed,0.01).css('z-index','100');
 		login.fadeTo(speed,1).css('z-index','200');
 	});
+
+    $('.to-phone').click(function(){
+        recover.fadeTo(speed,0.01).css('z-index','100');
+        login.fadeTo(speed,0.01).css('z-index','100');
+        phone.fadeTo(speed,1).css('z-index','200');
+    });
     
     if($.browser.msie == true && $.browser.version.slice(0,3) < 10) {
         $('input[placeholder]').each(function(){ 

@@ -66,6 +66,11 @@ body {
 	z-index: 200;
 }
 
+#loginbox form#phoneform {
+    z-index: 200;
+    display: none;
+}
+
 #loginbox form#recoverform {
 	z-index: 100;
 	opacity: 0;
