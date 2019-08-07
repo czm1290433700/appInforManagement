@@ -23,6 +23,8 @@ public class DevUser {
 
     private Date modifydate;
 
+    private String phone;
+
     public Long getId() {
         return id;
     }
@@ -101,5 +103,13 @@ public class DevUser {
 
     public void setModifydate(Date modifydate) {
         this.modifydate = modifydate;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
     }
 }
