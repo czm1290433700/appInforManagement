@@ -51,7 +51,8 @@
             </div>
             <div class="form-actions">
                 <span class="pull-left" style="margin-right: 15px;"><a href="#" class="flip-link to-phone">&lt; 手机验证登录</a></span>
-                <span class="pull-left"><a href="#" class="flip-link to-recover">忘记密码?</a></span>
+                <span class="pull-left" style="margin-right: 15px;"><a href="#" class="flip-link to-recover">忘记密码?</a></span>
+                <span class="pull-left"><a href="register.jsp" class="flip-link to-recover">还没账号?</a></span>
                 <span class="pull-right"><input type="submit" value="登录" id="sub" class="btn btn-inverse" onclick="return loginCheck()"></span>
             </div>
         </form>
@@ -75,7 +76,8 @@
             </div>
             <div class="form-actions">
                 <span class="pull-left" style="margin-right: 15px;"><a href="#" class="flip-link to-login">&lt; 账号密码登录</a></span>
-                <span class="pull-left"><a href="#" class="flip-link to-recover">忘记密码?</a></span>
+                <span class="pull-left" style="margin-right: 15px;"><a href="#" class="flip-link to-recover">忘记密码?</a></span>
+                <span class="pull-left"><a href="register.jsp" class="flip-link to-recover">还没账号?</a></span>
                 <span class="pull-right"><button id="phone_btn" type="button" class="btn btn-inverse">登录</button></span>
             </div>
         </form>

@@ -2,6 +2,7 @@ package com.app.controller;
 
 import com.app.common.RandStringUtils;
 import com.app.entity.DevUser;
+import com.app.mail.SendEmail;
 import com.app.service.DevUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,13 @@ public class LoginController extends BaseController{
         }
     }
 
+    /**
+     * 手机验证登录
+     * @param model
+     * @param telephone
+     * @param telephoneCode
+     * @return
+     */
     @RequestMapping(value = "/phoneLogin",method = RequestMethod.POST)
     public String phoneLogin(Model model, String telephone, String telephoneCode){
         //手机登录
@@ -109,6 +117,21 @@ public class LoginController extends BaseController{
             map.put( "msg",false );
         }
         map.put( "msg",true );
+        return map;
+    }
+
+    /**
+     * 发送邮件
+     * @return
+     */
+    @RequestMapping("/sendEmail")
+    @ResponseBody
+    public  Map<String,Object> sendEmail() {
+        Map map = new HashMap<String,Object>(  );
+        String validateCode = getRequest().getParameter( "validateCode" );
+        String email = getRequest().getParameter( "email" );
+        SendEmail.sendEmailMessage(email,validateCode);
+        map.put( "success","success" );
         return map;
     }
 }

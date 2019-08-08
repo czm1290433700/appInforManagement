@@ -45,7 +45,7 @@ function loginCheck(){
     return flag;
 }
 
-//验证邮箱地址
+//验证邮箱地址(登录)
 function emailCheck(){
     var flag;
     var email = $("#email").val();
@@ -83,13 +83,13 @@ function emailCheck(){
     return flag;
 }
 
-//校验手机号
+//校验手机号(登录)
 var flag2 = true;
 function phoneCheck(){
     var phone = $("#telephone").val();
     phone = phone.replace(/^\s+|\s+$/g,"");
     if(!(/^1[3456789]\d{9}$/.test(phone))){
-        $("#telephone_alert").text("手机号码非法，请重新输入！").css("color","red");
+        $("#telephone_alert").text("手机号码非法！").css("color","red");
         flag2 = false;
     }else{
         $.ajax({
@@ -99,7 +99,7 @@ function phoneCheck(){
             success:function(data){
                 if(data == "success"){
                     //未注册
-                    $("#telephone_alert").text("该手机号还未注册！");
+                    $("#telephone_alert").text("该手机号还未注册！").css("color","red");
                     flag2 =  false;
                 }else{
                     //注册
@@ -110,6 +110,128 @@ function phoneCheck(){
         });
     }
     return flag2;
+}
+
+//校验用户名
+function userNameCheck() {
+    var username = $("#username").val();
+    if(username == ''){
+        $("#username_alert").text("用户名不能为空").css("color","red");
+        return false;
+    }
+    return true;
+}
+
+//校验密码强弱
+function CheckIntensity() {
+    var flag = false;
+    var pwd = $("#password").val();
+    //去两边空格
+    if(pwd!=null) {
+        pwd = pwd.replace(/^\s+|\s+$/g, "");
+    }
+    var len = 0;
+    if(pwd != "" && pwd!=null){
+        len = pwd.length;
+    }
+    if( len < 6){
+        $("#password_alert").text("密码长度少于6位！").css("color","red");
+    }else {
+        if(/^[0-9]*$/.test(pwd) || /^[A-Za-z]+$/.test(pwd)){
+            $("#password_alert").text("密码强度弱！").css("color","green");
+        }else if(/^[A-Za-z0-9]+$ /.test(pwd) || pwd.length <= 10){
+            $("#password_alert").text("密码强度中！").css("color","green");
+        }else{
+            $("#password_alert").text("密码强度强！").css("color","green");
+        }
+        flag = true;
+    }
+    return flag;
+}
+
+//验证前后输入密码是否一致
+function okPwdCheck(){
+    var pwd = $("#password").val();
+    var okpwd = $("#okpassword").val();
+    if(pwd == '' || okpwd == ''){
+        $("#okpassword_alert").text("密码不能为空").css("color","red");
+        return false;
+    }else{
+        if(okpwd != pwd) {
+            $("#okpassword_alert").text("前后密码不一致").css("color", "red");
+            return false;
+        }else{
+            return true;
+        }
+    }
+}
+
+//校验手机号(注册)
+function checkPhone() {
+    var flag2 = true;
+    var phone = $("#telephone").val();
+    phone = phone.replace(/^\s+|\s+$/g,"");
+    if(!(/^1[3456789]\d{9}$/.test(phone))){
+        $("#telephone_alert").text("手机号码非法！").css("color","red");
+        flag2 = false;
+    }else{
+        $.ajax({
+            type:'post',
+            url:'/checkPhone',
+            data: {"telephone":phone},
+            success:function(data){
+                if(data == "success"){
+                    //未注册
+                    $("#telephone_alert").text("√").css("color","green");
+                    flag2 =  true;
+                }else{
+                    //注册
+                    $("#telephone_alert").text("该手机号已被注册！").css("color","red");
+                    flag2 =  false;
+                }
+            }
+        });
+    }
+    return flag2;
+}
+
+//校验邮箱(注册)
+function checkEmail(){
+    var flag;
+    var email = $("#email").val();
+    if(email == ''){
+        $("#email_alert").text("请输入邮箱").css("color", "red");
+        flag = false;
+    }else{
+        $("#email_alert").text("");
+    }
+    if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/.test(email))){
+        $("#email_alert").text("请输入正确邮箱").css("color", "red");
+        flag = false;
+    }else{
+        $("#email_alert").text("");
+    }
+    //测试邮箱无误，将会发送邮件
+    if(email != '' && /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/.test(email)){
+        var value = {
+            "email": email
+        };
+        $.ajax({
+            url: '/checkEmail',
+            type: 'post',
+            data: value,
+            success: function (data) {
+                if(data =="fail"){
+                    $("#email_alert").text("该邮箱已被注册").css("color","red");
+                    flag = false;
+                }else{
+                    $("#email_alert").text("√").css("color","green");
+                    flag = true;
+                }
+            }
+        });
+    }
+    return flag;
 }
 
 //获取验证码按钮事件
@@ -139,7 +261,7 @@ function checkPhoneCode(){
     return p_flag;
 }
 
-//获取验证码
+//获取手机验证码
 $(function () {
     $("#go").click(function () {
         if(phoneCheck()){
@@ -180,3 +302,37 @@ $(function () {
         }
     });
 });
+
+//更换验证码
+function changeCaptcha() {
+    $("#captchaImg").attr('src', '/captchaServlet?t=' + (new Date().getTime()));
+}
+
+//验证码校验
+function checkCode() {
+    var flag_c = false;
+    var code = $("#code").val();
+    code = code.replace(/^\s+|\s+$/g,"");
+    if(code == ""){
+        $("#code_alert").text("请输入验证码！").css("color","red");
+        flag_c = false;
+    }else{
+        $.ajax({
+            type: 'post',
+            url: '/checkCode',
+            data: {"code": code},
+            success: function (data) {
+                if (data == "success") {
+                    $("#code_alert").text("√").css("color","green");
+                    flag_c = true;
+                }else {
+                    $("#code_alert").text("验证码错误！").css("color","red");
+                    flag_c = false;
+                }
+            }
+        });
+
+    }
+    return flag_c;
+}
+
