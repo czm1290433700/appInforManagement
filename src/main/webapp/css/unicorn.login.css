@@ -67,12 +67,10 @@ body {
 }
 
 #loginbox form#phoneform {
-    z-index: 200;
     display: none;
 }
 
 #loginbox form#recoverform {
-	z-index: 100;
 	opacity: 0;
     display:none;
 }

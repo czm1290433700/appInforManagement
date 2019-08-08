@@ -12,7 +12,23 @@ public class DevUserServiceImpl implements DevUserService {
     DevUserMapper devUserMapper;
 
     @Override
-    public int insert(DevUser devUser) {
-        return devUserMapper.insert(devUser);
+    public DevUser userSelectById(Integer id) {
+        DevUser devUser = new DevUser();
+        devUser.setId(id.longValue());
+        return devUserMapper.selectOne(devUser);
+    }
+
+    @Override
+    public DevUser userSelectByPhone(String phone) {
+        DevUser devUser = new DevUser();
+        devUser.setPhone(phone);
+        return devUserMapper.selectOne(devUser);
+    }
+
+    @Override
+    public DevUser userSelectByEmail(String email) {
+        DevUser devUser = new DevUser();
+        devUser.setDevEmail(email);
+        return devUserMapper.selectOne(devUser);
     }
 }

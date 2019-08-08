@@ -1,6 +1,5 @@
 package com.app.entity;
 
-
 import java.util.Date;
 
 public class DevUser {

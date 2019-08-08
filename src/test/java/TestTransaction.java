@@ -13,8 +13,7 @@ public class TestTransaction extends AbstractJUnit4SpringContextTests {
     @Test
     public void userInert(){
         DevUser devUser = new DevUser();
-        devUser.setPhone("1211");
-        devUserService.insert(devUser);
+        devUser = devUserService.userSelectById(1001);
         return ;
     }
 }
