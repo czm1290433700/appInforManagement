@@ -1,6 +1,45 @@
 /**
   * Create by CZM on 2019/8/7
  **/
+//检验管理员id
+function adminLoginCheck(){
+    var flag;
+    var userCode = $("#userCode").val();
+    var password = $("#password").val();
+    if(userCode == ''){
+        $("#userCode_alert").text("请输入登录账号").css("color", "red");
+        flag = false;
+    }else{
+        $("#userCode_alert").text("");
+    }
+    if(password == ''){
+        $("#password_alert").text("请输入密码").css("color","red");
+        flag = false;
+    }else{
+        $("#password_alert").text("");
+    }
+    if(userCode != '' && password != ''){
+        var value = {
+            "userCode": userCode,
+            "password": password
+        };
+        $.ajax({
+            url: '/adLogin',
+            type: 'post',
+            async:false,
+            data: value,
+            success: function (data) {
+                if(data =="success"){
+                    flag = true;
+                }else{
+                    $("#password_alert").text("密码错误！").css("color","red");
+                    flag = false;
+                }
+            }
+        });
+    }
+    return flag;
+}
 
 //校验id
 function loginCheck(){

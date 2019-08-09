@@ -3,7 +3,9 @@ package com.app.service;
 import com.app.entity.DevUser;
 import org.springframework.stereotype.Service;
 
-@Service
+/**
+ * Create by CZM on 2019/8/6
+ */
 public interface DevUserService {
     /**
      * 修改用户
