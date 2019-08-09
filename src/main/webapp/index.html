@@ -1,287 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Unicorn Admin</title>
-		<meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-		<link rel="stylesheet" href="css/fullcalendar.css" />	
-		<link rel="stylesheet" href="css/unicorn.main.css" />
-		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
-	<body>
-		
-		
-		<div id="header">
-			<h1><a href="./dashboard.html">Unicorn Admin</a></h1>		
-		</div>
-		
-		<div id="search">
-			<input type="text" placeholder="Search here..." /><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
-		</div>
-		<div id="user-nav" class="navbar navbar-inverse">
-            <ul class="nav btn-group">
-                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
-                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a class="sAdd" title="" href="#">new message</a></li>
-                        <li><a class="sInbox" title="" href="#">inbox</a></li>
-                        <li><a class="sOutbox" title="" href="#">outbox</a></li>
-                        <li><a class="sTrash" title="" href="#">trash</a></li>
-                    </ul>
-                </li>
-                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-                <li class="btn btn-inverse"><a title="" href="login.jsp"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-            </ul>
-        </div>
-            
-		<div id="sidebar">
-			<a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-			<ul>
-				<li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a></li>
-				<li class="submenu">
-					<a href="#"><i class="icon icon-th-list"></i> <span>Form elements</span> <span class="label">3</span></a>
-					<ul>
-						<li><a href="form-common.html">Common elements</a></li>
-						<li><a href="form-validation.html">Validation</a></li>
-						<li><a href="form-wizard.html">Wizard</a></li>
-					</ul>
-				</li>
-				<li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-				<li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Interface elements</span></a></li>
-				<li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
-				<li><a href="grid.html"><i class="icon icon-th-list"></i> <span>Grid Layout</span></a></li>
-				<li class="submenu">
-					<a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>
-					<ul>
-						<li><a href="invoice.html">Invoice</a></li>
-						<li><a href="chat.html">Support chat</a></li>
-						<li><a href="calendar.html">Calendar</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a>
-				</li>
-				<li>
-					<a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a>
-				</li>
-			</ul>
-		
-		</div>
-		
-		<div id="style-switcher">
-			<i class="icon-arrow-left icon-white"></i>
-			<span>Style:</span>
-			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
-			<a href="#blue" style="background-color: #2D2F57;"></a>
-			<a href="#red" style="background-color: #673232;"></a>
-		</div>
-		
-		<div id="content">
-			<div id="content-header">
-				<h1>Dashboard</h1>
-				<div class="btn-group">
-					<a class="btn btn-large tip-bottom" title="Manage Files"><i class="icon-file"></i></a>
-					<a class="btn btn-large tip-bottom" title="Manage Users"><i class="icon-user"></i></a>
-					<a class="btn btn-large tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a>
-					<a class="btn btn-large tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a>
-				</div>
-			</div>
-			<div id="breadcrumb">
-				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-				<a href="#" class="current">Dashboard</a>
-			</div>
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<div class="span12 center" style="text-align: center;">					
-						<ul class="stat-boxes">
-							<li>
-								<div class="left peity_bar_good"><span>2,4,9,7,12,10,12</span>+20%</div>
-								<div class="right">
-									<strong>36094</strong>
-									Visits
-								</div>
-							</li>
-							<li>
-								<div class="left peity_bar_neutral"><span>20,15,18,14,10,9,9,9</span>0%</div>
-								<div class="right">
-									<strong>1433</strong>
-									Users
-								</div>
-							</li>
-							<li>
-								<div class="left peity_bar_bad"><span>3,5,9,7,12,20,10</span>-50%</div>
-								<div class="right">
-									<strong>8650</strong>
-									Orders
-								</div>
-							</li>
-							<li>
-								<div class="left peity_line_good"><span>12,6,9,23,14,10,17</span>+70%</div>
-								<div class="right">
-									<strong>8650</strong>
-									Orders
-								</div>
-							</li>
-						</ul>
-					</div>	
-				</div>
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="alert alert-info">
-							Welcome in the <strong>Unicorn Admin Theme</strong>. Don't forget to check all the pages!
-							<a href="#" data-dismiss="alert" class="close">×</a>
-						</div>
-						<div class="widget-box">
-							<div class="widget-title"><span class="icon"><i class="icon-signal"></i></span><h5>Site Statistics</h5><div class="buttons"><a href="#" class="btn btn-mini"><i class="icon-refresh"></i> Update stats</a></div></div>
-							<div class="widget-content">
-								<div class="row-fluid">
-								<div class="span4">
-									<ul class="site-stats">
-										<li><i class="icon-user"></i> <strong>1433</strong> <small>Total Users</small></li>
-										<li><i class="icon-arrow-right"></i> <strong>16</strong> <small>New Users (last week)</small></li>
-										<li class="divider"></li>
-										<li><i class="icon-shopping-cart"></i> <strong>259</strong> <small>Total Shop Items</small></li>
-										<li><i class="icon-tag"></i> <strong>8650</strong> <small>Total Orders</small></li>
-										<li><i class="icon-repeat"></i> <strong>29</strong> <small>Pending Orders</small></li>
-									</ul>
-								</div>
-								<div class="span8">
-									<div class="chart"></div>
-								</div>	
-								</div>							
-							</div>
-						</div>					
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span6">
-						<div class="widget-box">
-							<div class="widget-title"><span class="icon"><i class="icon-file"></i></span><h5>Recent Posts</h5><span title="54 total posts" class="label label-info tip-left">54</span></div>
-							<div class="widget-content nopadding">
-								<ul class="recent-posts">
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av2.jpg" />
-										</div>
-										<div class="article-post">
-											<span class="user-info"> By: neytiri on 2 Aug 2012, 09:27 AM, IP: 186.56.45.7 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av3.jpg" />
-										</div>
-										<div class="article-post">
-											<span class="user-info"> By: john on on 24 Jun 2012, 04:12 PM, IP: 192.168.24.3 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av1.jpg" />
-										</div>
-										<div class="article-post">
-											<span class="user-info"> By: michelle on 22 Jun 2012, 02:44 PM, IP: 172.10.56.3 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li class="viewall">
-										<a title="View all posts" class="tip-top" href="#"> + View all + </a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="span6">
-						<div class="widget-box">
-							<div class="widget-title"><span class="icon"><i class="icon-comment"></i></span><h5>Recent Comments</h5><span title="88 total comments" class="label label-info tip-left">88</span></div>
-							<div class="widget-content nopadding">
-								<ul class="recent-comments">
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av1.jpg" />
-										</div>
-										<div class="comments">
-											<span class="user-info"> User: michelle on IP: 172.10.56.3 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Approve</a> <a href="#" class="btn btn-warning btn-mini">Mark as spam</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av3.jpg" />
-										</div>
-										<div class="comments">
-											<span class="user-info"> User: john on IP: 192.168.24.3 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Approve</a> <a href="#" class="btn btn-warning btn-mini">Mark as spam</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li>
-										<div class="user-thumb">
-											<img width="40" height="40" alt="User" src="img/demo/av2.jpg" />
-										</div>
-										<div class="comments">
-											<span class="user-info"> User: neytiri on IP: 186.56.45.7 </span>
-											<p>
-												<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
-											</p>
-											<a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Approve</a> <a href="#" class="btn btn-warning btn-mini">Mark as spam</a> <a href="#" class="btn btn-danger btn-mini">Delete</a>
-										</div>
-									</li>
-									<li class="viewall">
-										<a title="View all comments" class="tip-top" href="#"> + View all + </a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div class="span12">
-						<div class="widget-box widget-calendar">
-							<div class="widget-title"><span class="icon"><i class="icon-calendar"></i></span><h5>Calendar</h5></div>
-							<div class="widget-content nopadding">
-								<div class="calendar"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row-fluid">
-					<div id="footer" class="span12">
-						2012 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
+<head>
+  <title>APP信息管理系统首页</title>
 
-            <script src="js/excanvas.min.js"></script>
-            <script src="js/jquery.min.js"></script>
-            <script src="js/jquery.ui.custom.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery.flot.min.js"></script>
-            <script src="js/jquery.flot.resize.min.js"></script>
-            <script src="js/jquery.peity.min.js"></script>
-            <script src="js/fullcalendar.min.js"></script>
-            <script src="js/unicorn.js"></script>
-            <script src="js/unicorn.dashboard.js"></script>
-	</body>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="">
+  
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Karla:400,400i,700%7CLato:300,400,400i,700' rel='stylesheet'>
+
+  <!-- Css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/magnific-popup.css" />
+  <link rel="stylesheet" href="css/font-icons.css" />
+  <link rel="stylesheet" href="css/sliders.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div class="loader-mask">
+    <div class="loader">
+      "Loading..."
+    </div>
+  </div>
+
+  <main class="main-wrapper">
+
+    <!-- Navigation -->
+    <header class="nav nav--transparent nav--always-fixed nav--sticky-on-mobile">
+      <div class="nav__holder nav__holder--no-line" id="sticky-nav">
+
+        <div class="container-fluid container-semi-fluid">
+          <div class="flex-parent">
+
+            <div class="nav__header clearfix">
+              <!-- Logo -->
+              <div class="logo-wrap">
+                <a href="index.html" class="logo__link">
+                  <span style="font-size:25px;color:white;">APP信息管理平台</span>
+                </a>
+              </div>
+            </div> <!-- end nav-header -->
+
+            <!-- Nav Open Icon -->
+            <div class="nav__icon-wrap">
+              <div id="nav__icon" class="nav__icon">
+                <div class="nav__icon__inner">
+                  <a href="#" id="nav__icon__trigger" class="nav__icon__trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+        
+          </div> <!-- end flex-parent -->
+        </div> <!-- end container -->
+      </div>
+
+
+      <!-- Fullscreen Menu -->
+      <div class="nav__overlay" id="nav__overlay">
+        <div class="nav__overlay__menu">
+          <ul>
+            <li><a href="login.jsp">APP开发者登录</a></li>
+            <li><a href="#">后台管理者登录</a></li>
+            <li><a href="index.html">返回首页</a></li>
+          </ul>
+        </div>
+
+        <!-- Nav Close Icon -->
+        <div class="nav__icon-wrap">
+          <div class="nav__icon">
+            <div class="nav__icon__inner">
+              <a href="#" id="nav__icon__close" class="nav__icon__trigger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header> <!-- end navigation -->
+<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网站建设</a></div>
+
+    <div class="content-wrapper oh">
+
+      <!-- Fullpage -->
+      <div id="fullpage" class="fullscreen-img">
+
+        <!-- Hero -->
+        <div class="section hero bg-img" style="background-image: url(img/hero/hero_6_1.jpg);">
+          <div class="container">
+            <div class="hero__outer">
+              <div class="hero__inner">
+                <h3 class="hero__subtitle--uppercase">创建注册属于你的APP</h3>
+                <h1 class="hero__title hero--boxed--md hero--bold">我们有最丰富的知识，项目经验，最强大的团队和最棒的设计理念</h1>
+              </div>
+            </div>
+
+            <!-- Partners -->
+            <div class="partners partners--overlay">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-3 col-xxs-6">
+                    <a href="#">
+                      <img src="img/partners/partner_logo_light_1.png" alt="">
+                    </a>
+                  </div>
+                  <div class="col-xs-3 col-xxs-6">
+                    <a href="#">
+                      <img src="img/partners/partner_logo_light_2.png" alt="">
+                    </a>
+                  </div>
+                  <div class="col-xs-3 col-xxs-6">
+                    <a href="#">
+                      <img src="img/partners/partner_logo_light_3.png" alt="">
+                    </a>
+                  </div>
+                  <div class="col-xs-3 col-xxs-6">
+                    <a href="#">
+                      <img src="img/partners/partner_logo_light_4.png" alt="">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- end partners -->
+
+
+          </div>          
+        </div> <!-- end hero -->
+
+        <!-- Services -->
+        <div class="section hero bg-img" style="background-image: url(img/hero/hero_6_2.jpg)">
+          <div class="container pt-sm-60">
+
+            <div class="heading-row text-center">
+              <h2 class="heading heading--lg">我们能做什么</h2>
+              <p class="subheading white hidden-sm hidden-xs">最专业，最完善的团队为您的成功提供技术支持</p>
+            </div>
+
+            <div class="row">
+              <div id="owl-services-slider" class="owl-carousel owl-theme">
+
+                <div class="feature feature--transparent text-center">
+                  <div class="feature__base feature--border">
+                    <a href="#" class="feature__icon-holder">
+                      <i class="pe-7s-cloud feature__icon"></i>
+                    </a>
+                    <div class="feature__text">
+                      <h3 class="feature__title bottom-line">iOS Apps</h3>
+                      <p class="feature__text__paragraph">苹果APP备案注册，并且提供相关一条龙服务</p>
+                    </div>
+                  </div>
+                </div> <!-- end feature item -->
+
+                <div class="feature feature--transparent text-center">
+                  <div class="feature__base feature--border">
+                    <a href="#" class="feature__icon-holder">
+                      <i class="pe-7s-diamond feature__icon"></i>
+                    </a>
+                    <div class="feature__text">
+                      <h3 class="feature__title bottom-line">Web Design</h3>
+                      <p class="feature__text__paragraph">为你的app设计美观大方的响应式布局的网页，让你的APP如虎添翼</p>
+                    </div>
+                  </div>
+                </div> <!-- end feature item -->
+
+                <div class="feature feature--transparent text-center">
+                  <div class="feature__base feature--border">
+                    <a href="#" class="feature__icon-holder">
+                      <i class="pe-7s-shopbag feature__icon"></i>
+                    </a>
+                    <div class="feature__text">
+                      <h3 class="feature__title bottom-line">eCommerce</h3>
+                      <p class="feature__text__paragraph">提供网上贸易技术支持，让你的APP离成功更近一步</p>
+                    </div>
+                  </div>
+                </div> <!-- end feature item -->
+
+                <div class="feature feature--transparent text-center">
+                  <div class="feature__base feature--border">
+                    <a href="#" class="feature__icon-holder">
+                      <i class="pe-7s-graph2 feature__icon"></i>
+                    </a>
+                    <div class="feature__text">
+                      <h3 class="feature__title bottom-line">Marketing</h3>
+                      <p class="feature__text__paragraph">支持购物系统，成为你最放心的APP交易中介管家</p>
+                    </div>
+                  </div>
+                </div> <!-- end feature item -->
+
+              </div>
+            </div>
+
+          </div>
+        </div> <!-- end services -->
+
+        <!-- Project 1 -->
+        <div class="section hero bg-img" style="background-image: url(img/hero/hero_6_3.jpg)">
+          <div class="container-fluid no-padding">
+            <div class="fullpage-project-body">
+              <div class="work-item__description">
+                <h3 class="work-item__title"><a href="#">设计工作中心</a></h3>
+                <span class="work-item__text">
+                  对客户最专业的产品设计
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end project 1 -->
+
+        <!-- Project 2 -->
+        <div class="section hero bg-img" style="background-image: url(img/hero/hero_6_4.jpg)">
+          <div class="container-fluid no-padding">
+            <div class="fullpage-project-body">
+              <div class="work-item__description">
+                <h3 class="work-item__title"><a href="#">美观大方的设计</a></h3>
+                <span class="work-item__text">
+                  把客户的APP灵活大方地展现给公众
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> <!-- end project 2 -->
+
+        <!-- Contact -->
+        <div class="section hero bg-img" style="background-image: url(img/hero/hero_6_5.jpg)">
+          <div class="container pt-sm-60">
+            <div class="hero__outer">
+              <div class="hero__inner text-center">
+
+                <div class="heading-row text-center">
+                  <h2 class="heading heading--lg">联系我们</h2>
+                  <p class="subheading white hidden-xs">欢迎您随时随地联系我们的工作室
+                  </p>
+                </div>
+
+                <div class="contact-item">
+                  <span class="contact-item__title">Phone:</span>
+                  <a href="#" class="contact-item__phone">+00 00 00 00</a>
+                </div> <!-- end phone -->
+
+                <div class="contact-item">
+                  <span class="contact-item__title">Email:</span>
+                  <a href="#" class="contact-item__email">1290433700@qq.com</a>
+                </div> <!-- end email -->
+
+                <div class="social-icons social-icons--nobase social-icons--white mt-50">
+                  <a href="#"><i class="ui-twitter"></i></a>
+                  <a href="#"><i class="ui-facebook"></i></a>
+                  <a href="#"><i class="ui-linkedin"></i></a>
+                  <a href="#"><i class="ui-instagram"></i></a>
+                </div>
+
+              </div>           
+            </div>
+          </div>
+        </div> <!-- end contact -->
+      </div> <!-- end fullpage -->
+
+
+    </div> <!-- end content wrapper -->
+  </main> <!-- end main wrapper -->
+  
+
+  <!-- jQuery Scripts -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/plugins.js"></script>  
+  <script type="text/javascript" src="js/scripts.js"></script>
+    
+</body>
 </html>
