@@ -6,25 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="ctx" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
     <title>Unicorn Admin</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="css/fullcalendar.css" />
-    <link rel="stylesheet" href="css/unicorn.main.css" />
-    <link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    <c:set var="ctx" value="${pageContext.request.contextPath }"/>
+    <link rel="stylesheet" href="${ctx}/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="${ctx}/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="${ctx}/css/fullcalendar.css" />
+    <link rel="stylesheet" href="${ctx}/css/unicorn.main.css" />
+    <link rel="stylesheet" href="${ctx}/css/unicorn.grey.css" class="skin-color" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
 
 <div id="header">
-    <h1><a href="./dashboard.html">Unicorn Admin</a></h1>
+    <h1><a href="#">Unicorn Admin</a></h1>
 </div>
 
 <div id="user-nav" class="navbar navbar-inverse">
@@ -190,8 +190,8 @@
     </div>
 </div>
 
-<script src="js/excanvas.min.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="${ctx}/js/excanvas.min.js"></script>
+<script src="${ctx}/js/jquery.min.js"></script>
 <script>
 
     $(function() {
@@ -229,13 +229,13 @@
     });
 
 </script>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.flot.min.js"></script>
-<script src="js/jquery.flot.resize.min.js"></script>
-<script src="js/jquery.peity.min.js"></script>
-<script src="js/fullcalendar.min.js"></script>
-<script src="js/unicorn.js"></script>
-<script src="js/unicorn.dashboard.js"></script>
+<script src="${ctx}/js/jquery.ui.custom.js"></script>
+<script src="${ctx}/js/bootstrap.min.js"></script>
+<script src="${ctx}/js/jquery.flot.min.js"></script>
+<script src="${ctx}/js/jquery.flot.resize.min.js"></script>
+<script src="${ctx}/js/jquery.peity.min.js"></script>
+<script src="${ctx}/js/fullcalendar.min.js"></script>
+<script src="${ctx}/js/unicorn.js"></script>
+<script src="${ctx}/js/unicorn.dashboard.js"></script>
 </body>
 </html>
