@@ -3,8 +3,10 @@ package com.app.controller;
 import com.app.common.Constants;
 import com.app.common.MD5Util;
 import com.app.common.RandStringUtils;
+import com.app.entity.BackendUser;
 import com.app.entity.DevUser;
 import com.app.mail.SendEmail;
+import com.app.service.BackendUserService;
 import com.app.service.DevUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +39,40 @@ public class LoginController extends BaseController{
     @Autowired
     DevUserService devUserService;
 
+    @Autowired
+    BackendUserService backendUserService;
+
     @Autowired// redis数据库操作模板
     private RedisTemplate<String, String> redisTemplate;// jdbcTemplate HibernateTemplate
 
     @Autowired
     @Qualifier("jmsQueueTemplate")
     private JmsTemplate jmsTemplate;// mq消息模板.
+
+    /**
+     * 管理员登录
+     * @param userCode
+     * @param password
+     * @param httpSession
+     * @return
+     */
+    @RequestMapping(value = "/adLogin",method = RequestMethod.POST)
+    @ResponseBody
+    public String adminLogin(String userCode, String password, HttpSession httpSession) {
+        log.debug("管理员登录验证" + userCode + "和" + password + "是否可用");
+        BackendUser backendUser = backendUserService.findByUserCode(userCode);
+        if (backendUser == null) {
+            return "false";
+        } else {
+            password = MD5Util.encodeToHex(Constants.SALT + password);
+            if (backendUser.getUserPassword().equals(password)) {
+                httpSession.setAttribute("backendUser", backendUser);
+                return "success";
+            } else {
+                return "false";
+            }
+        }
+    }
 
     /**
      * 账号密码登录
@@ -54,7 +84,7 @@ public class LoginController extends BaseController{
     @RequestMapping(value = "/passwordLogin",method = RequestMethod.POST)
     @ResponseBody
     public String passwordLogin(Integer id, String password, HttpSession httpSession) {
-        log.debug("登录验证" + id + "和" + password + "是否可用");
+        log.debug("用户登录验证" + id + "和" + password + "是否可用");
         DevUser devUser = devUserService.userSelectById(id);
         if (devUser == null) {
             return "false";
