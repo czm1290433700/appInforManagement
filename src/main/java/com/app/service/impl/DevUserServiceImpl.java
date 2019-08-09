@@ -31,4 +31,22 @@ public class DevUserServiceImpl implements DevUserService {
         devUser.setDevEmail(email);
         return devUserMapper.selectOne(devUser);
     }
+
+    @Override
+    public int register(DevUser devUser) {
+        return devUserMapper.insert(devUser);
+    }
+
+    @Override
+    public int deleteByEmail(String email) {
+        DevUser devUser = new DevUser();
+        devUser.setDevEmail(email);
+        return devUserMapper.delete(devUser);
+    }
+
+    @Override
+    public int update(DevUser devUser) {
+        return devUserMapper.updateByPrimaryKeySelective(devUser);
+    }
+
 }

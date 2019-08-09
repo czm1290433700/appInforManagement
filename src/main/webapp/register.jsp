@@ -11,7 +11,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath }"/>
 <html>
 <head>
-    <title>开发人员登录页面</title>
+    <title>注册页面</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${ctx}/css/bootstrap.min.css" />
@@ -30,13 +30,13 @@
 <div id="logo">
     <span class="logo-head">欢迎注册</span>
 </div>
-<div id="loginbox" style="height:380px;">
-    <form id="registerform" class="form-vertical" action="#">
+<div id="loginbox" style="height:410px;">
+    <form id="registerform" class="form-vertical" action="${ctx}/doRegister">
         <p>填写信息表后继续</p>
         <div class="control-group">
             <div class="controls">
                 <div class="input-prepend">
-                    <span class="add-on"><i class="icon-user"></i></span><input type="text" placeholder="UserName" id="username" name="devName" onblur="userNameCheck()"/>
+                    <span class="add-on"><i class="icon-user"></i></span><input type="text" placeholder="UserName" id="username" name="username" onblur="userNameCheck()"/>
                     <span id="username_alert"></span>
                 </div>
             </div>
@@ -68,7 +68,7 @@
         <div class="control-group">
             <div class="controls">
                 <div class="input-prepend">
-                    <span class="add-on"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" id="email" name="devEmail" onblur="checkEmail()"/>
+                    <span class="add-on"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" id="email" name="email" onblur="checkEmail()"/>
                     <span id="email_alert"></span>
                 </div>
             </div>
@@ -95,9 +95,18 @@
                 </div>
             </div>
         </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-prepend">
+                    <div style="width: 100%;height: 20px;">
+                        <span id="all_alert"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="form-actions">
             <span class="pull-left" style="margin-right: 20px;"><a href="login.jsp" class="flip-link to-login">&lt;已有账号</a></span>
-            <span class="pull-right"><button type="button" class="btn btn-inverse">注册</button></span>
+            <span class="pull-right"><button id="to_register" type="button" class="btn btn-inverse">注册</button></span>
         </div>
     </form>
 

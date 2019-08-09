@@ -1,11 +1,17 @@
 package com.app.entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class DevUser {
 
+  @Id//标识主键
+  @GeneratedValue(strategy = GenerationType.IDENTITY) //自增长策略
   private Long id;
-  private String devCode;
+  private String enable;
+  private String state;
   private String devName;
   private String devPassword;
   private String devEmail;
@@ -23,12 +29,20 @@ public class DevUser {
   }
 
 
-  public String getDevCode() {
-    return devCode;
+  public String getEnable() {
+    return enable;
   }
 
-  public void setDevCode(String devCode) {
-    this.devCode = devCode;
+  public void setEnable(String enable) {
+    this.enable = enable;
+  }
+
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
   }
 
 

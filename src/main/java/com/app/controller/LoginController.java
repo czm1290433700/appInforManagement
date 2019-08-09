@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import com.app.common.Constants;
+import com.app.common.MD5Util;
 import com.app.common.RandStringUtils;
 import com.app.entity.DevUser;
 import com.app.mail.SendEmail;
@@ -43,7 +45,7 @@ public class LoginController extends BaseController{
     private JmsTemplate jmsTemplate;// mq消息模板.
 
     /**
-     * 密码验证登录
+     * 账号密码登录
      * @param id
      * @param password
      * @param httpSession
@@ -57,6 +59,7 @@ public class LoginController extends BaseController{
         if (devUser == null) {
             return "false";
         } else {
+            password = MD5Util.encodeToHex(Constants.SALT + password);
             if (devUser.getDevPassword().equals(password)) {
                 httpSession.setAttribute("devUser", devUser);
                 return "success";

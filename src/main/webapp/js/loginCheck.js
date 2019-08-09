@@ -195,19 +195,19 @@ function checkPhone() {
     return flag2;
 }
 
+var flag_e = false;
 //校验邮箱(注册)
 function checkEmail(){
-    var flag;
     var email = $("#email").val();
     if(email == ''){
         $("#email_alert").text("请输入邮箱").css("color", "red");
-        flag = false;
+        flag_e = false;
     }else{
         $("#email_alert").text("");
     }
     if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/.test(email))){
         $("#email_alert").text("请输入正确邮箱").css("color", "red");
-        flag = false;
+        flag_e = false;
     }else{
         $("#email_alert").text("");
     }
@@ -223,15 +223,15 @@ function checkEmail(){
             success: function (data) {
                 if(data =="fail"){
                     $("#email_alert").text("该邮箱已被注册").css("color","red");
-                    flag = false;
+                    flag_e = false;
                 }else{
                     $("#email_alert").text("√").css("color","green");
-                    flag = true;
+                    flag_e = true;
                 }
             }
         });
     }
-    return flag;
+    return flag_e;
 }
 
 //获取验证码按钮事件
@@ -259,6 +259,39 @@ function checkPhoneCode(){
         p_flag =  false;
     }
     return p_flag;
+}
+
+//更换验证码
+function changeCaptcha() {
+    $("#captchaImg").attr('src', '/captchaServlet?t=' + (new Date().getTime()));
+}
+
+var flag_c = false;
+//验证码校验
+function checkCode() {
+    var code = $("#code").val();
+    code = code.replace(/^\s+|\s+$/g,"");
+    if(code == ""){
+        $("#code_alert").text("请输入验证码！").css("color","red");
+        flag_c = false;
+    }else{
+        $.ajax({
+            type: 'post',
+            url: '/checkCode',
+            data: {"code": code},
+            success: function (data) {
+                if (data == "success") {
+                    $("#code_alert").text("√").css("color","green");
+                    flag_c = true;
+                }else {
+                    $("#code_alert").text("验证码错误！").css("color","red");
+                    flag_c = false;
+                }
+            }
+        });
+
+    }
+    return flag_c;
 }
 
 //获取手机验证码
@@ -301,38 +334,22 @@ $(function () {
             alert("请输入手机号和6位验证码!");
         }
     });
+
+    //提交注册信息
+    $("#to_register").click (function(){
+        if(userNameCheck() && CheckIntensity() && okPwdCheck() && checkPhone() && flag_e && flag_c){
+            $("#registerform").submit();
+        }else {
+            alert(a);
+            alert(b);
+            alert(c);
+            alert(d);
+            alert(e);
+            alert(f);
+            $("#all_alert").text("请将信息填写完整！").css("color","red");
+        }
+
+    });
+
 });
-
-//更换验证码
-function changeCaptcha() {
-    $("#captchaImg").attr('src', '/captchaServlet?t=' + (new Date().getTime()));
-}
-
-//验证码校验
-function checkCode() {
-    var flag_c = false;
-    var code = $("#code").val();
-    code = code.replace(/^\s+|\s+$/g,"");
-    if(code == ""){
-        $("#code_alert").text("请输入验证码！").css("color","red");
-        flag_c = false;
-    }else{
-        $.ajax({
-            type: 'post',
-            url: '/checkCode',
-            data: {"code": code},
-            success: function (data) {
-                if (data == "success") {
-                    $("#code_alert").text("√").css("color","green");
-                    flag_c = true;
-                }else {
-                    $("#code_alert").text("验证码错误！").css("color","red");
-                    flag_c = false;
-                }
-            }
-        });
-
-    }
-    return flag_c;
-}
 
