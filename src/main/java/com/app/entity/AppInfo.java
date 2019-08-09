@@ -20,9 +20,38 @@ public class AppInfo {
   private Long devId;
   private String appInfo;
   private Long status;
+  private Long floatFormId;
+
+  @Override
+  public String toString() {
+    return "AppInfo{" +
+            "id=" + id +
+            ", softwareName='" + softwareName + '\'' +
+            ", apkName='" + apkName + '\'' +
+            ", supportRom='" + supportRom + '\'' +
+            ", interfaceLanguage='" + interfaceLanguage + '\'' +
+            ", softWareSize=" + softWareSize +
+            ", updateDate=" + updateDate +
+            ", devId=" + devId +
+            ", appInfo='" + appInfo + '\'' +
+            ", status=" + status +
+            ", onSaleDate=" + onSaleDate +
+            ", offSaleDate=" + offSaleDate +
+            ", floatFormId=" + floatFormId +
+            ", categpryLevel3=" + categpryLevel3 +
+            ", downloads=" + downloads +
+            ", creationDate=" + creationDate +
+            ", modifyBy=" + modifyBy +
+            ", modifyDate=" + modifyDate +
+            ", categoryLevel1=" + categoryLevel1 +
+            ", categoryLevel2=" + categoryLevel2 +
+            ", versionId=" + versionId +
+            ", logoPicPath='" + logoPicPath + '\'' +
+            '}';
+  }
+
   private Date onSaleDate;
   private Date offSaleDate;
-  private Long floatFormId;
   private Long categpryLevel3;
   private Long downloads;
   private Date creationDate;

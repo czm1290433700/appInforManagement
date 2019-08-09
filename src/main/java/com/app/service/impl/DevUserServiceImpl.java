@@ -5,7 +5,6 @@ import com.app.entity.DevUser;
 import com.app.service.DevUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 
 @Service

@@ -44,7 +44,7 @@
     <ul>
 
         <li class="submenu">
-            <a href="#"><i class="icon icon-th-list"></i> <span>审核管理</span> </a>
+            <a href="${ctx}/admin/index"><i class="icon icon-th-list"></i> <span>审核管理</span> </a>
         </li>
         <li class="submenu">
             <a href="#"><i class="icon icon-file"></i> <span>轮播图管理</span> </a>
@@ -65,7 +65,7 @@
 
 <div id="content">
     <div id="breadcrumb">
-        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+        <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
         <a href="#" class="tip-bottom">审核管理</a>
         <a href="#" class="current">审核</a>
     </div>
@@ -75,33 +75,48 @@
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title">
-                        <a href="#" class="btn btn-danger btn-mini">未审核</a> <a href="#" class="btn-success btn-mini">已审核</a>
+                        <a href="${ctx}/admin/index" class="btn btn-danger btn-mini">未审核</a> <a href="${ctx}/admin/passList" class="btn btn-success btn-mini">已审核</a>
                     </div>
                     <div class="container-fluid">
                         <table  class="table table-condensed">
                             <div class="row">
                                 <!-- On rows -->
-                                <tr class="active"> <td class="active">#</td><td class="active">Logo</td>  <td class="active">软件名称</td> <td class="active">大小(M)</td><td class="active">APK名</td><td class="active">三级分类</td><td class="col-sm-2 active">下载链接</td><td class="col-sm-1 active">开发者id</td><td class="col-sm-1 active">最低ROM</td><td class="col-sm-1 active">平台</td><td class="active">语言</td><td class="col-sm-1 active">审核结果</td><td class="active"> 操作</td></tr>
+                                <tr class="active"> <td class="active">#</td><td class="active">Logo</td>  <td class="active">软件名称</td> <td class="active">大小(M)</td><td class="active">APK名</td><td class="active">三级分类</td><td class="col-sm-2 active">下载链接</td><td class="col-sm-1 active">开发者id</td><td class="col-sm-1 active">ROM</td><td class="col-sm-1 active">平台</td><td class="active">语言</td><td class="col-sm-1 active">审核结果</td><td class="active"> 操作</td></tr>
                             </div>
                             <div class="row">
-                                <c:forEach items="${AppInfoList }" var="item" varStatus="status">
+                                <c:forEach items="${appInfoExampleList }" var="item" varStatus="status">
                                 <tr>
                                     <td class="success">${status.index+1}</td>
-                                    <td class="success"><img src="img/demo/av1.jpg"></td>
-                                    <td class="success">${item.appInfo.softwareName }</td>
-                                    <td class="success">${item.appInfo.softWareSize}</td>
-                                    <td class="success">${item.appInfo.apkName}</td>
-                                    <td class="success">${item.appInfo.softWareSize}</td>
-                                    <td class="success">${item.appInfo.softWareSize}</td>
-                                    <td class="success">${item.catagory3Name}</td>
-                                    <td class="success">${item.downloadLing}</td>
-                                    <td class="success">${item.appInfo.id}</td>
-                                    <td class="success">${item.appInfo.supportRom}</td>
-                                    <td class="success">${item.floatFormName}</td>
-                                    <td class="success">${item.appInfo.interfaceLanguage}</td>
-                                    <td class="success">${item.checkResult}</td>
-                                    <td class="success">${item.checkResult}</td>
-                                    <td class="success"><a href="${ctx}/admin/checkPass/1" class="btn btn-primary btn-mini" >通过</a>&nbsp;<a href="${ctx}/admin/checkNotPass/1" class="btn btn-warning btn-mini">不通过</a></td>
+                                    <td class="success"><img src="${ctx}/${item.appInfo.logoPicPath }"></td>
+                                    <td class="success">${item.softwareName }</td>
+                                    <td class="success">${item.softWareSize}</td>
+                                    <td class="success">${item.apkName}</td>
+                                    <td class="success">${item.categoryName}</td>
+                                    <td class="success"><a href="${ctx}/${item.downloadLink}">下载</a></td>
+                                    <td class="success">${item.devId}</td>
+                                    <td class="success">${item.supportRom}</td>
+                                    <td class="success">
+                                        <c:if test="${item.floatFormId==9 }">
+                                        手机
+                                    </c:if>
+                                        <c:if test="${item.floatFormId==10 }">
+                                            平板
+                                        </c:if>
+                                        <c:if test="${item.floatFormId==14 }">
+                                           通用
+                                        </c:if>
+                                    </td>
+                                    <td class="success">${item.interfaceLanguage}</td>
+                                    <td class="success">
+                                            ${item.valueName}
+                                    </td>
+                                    <td class="success">
+                                        <c:if test="${item.status==4 or item.status==6}">
+                                            <a href="${ctx}/admin/checkPass/${item.id}" class="btn btn-primary btn-mini" >通过</a>
+                                        </c:if>
+                                        <c:if test="${item.status!=7 and item.status!=8}">
+                                        &nbsp;<a href="${ctx}/admin/checkNotPass/${item.id}" class="btn btn-warning btn-mini">不通过</a></td>
+                                        </c:if>
                                 </tr>
                             </c:forEach>
 

@@ -18,8 +18,6 @@ public class AppCategory {
   private Date creationTime;
   private Long modifyBy;
   private Date modifyDate;
-
-
   public Long getId() {
     return id;
   }
