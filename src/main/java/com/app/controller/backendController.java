@@ -21,13 +21,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
+@RequestMapping("/admin")
 @Controller
 public class backendController {
 //    @Autowired
    // BackendService devUserService;
-    @RequestMapping("/admin")
+    @RequestMapping("/index")
     public String query(HttpSession session) throws Exception{
+
+        return  "admin/index" ;
+    }
+    @RequestMapping("/checkNotPass/{id}")
+    public String checkNotPass(HttpSession session) throws Exception{
+        return  "admin/index" ;
+    }
+    @RequestMapping("/checkPass/{id}")
+    public String checkPass(HttpSession session) throws Exception{
         return  "admin/index" ;
     }
 }
