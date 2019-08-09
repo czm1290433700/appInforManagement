@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DevUserService {
     int insert(DevUser devUser);
+    boolean modifyDevUser(DevUser devUser) throws Exception;
 }

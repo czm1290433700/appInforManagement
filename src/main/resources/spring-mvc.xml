@@ -25,7 +25,7 @@
     </bean>
 
     <!-- 默认的注解映射的支持，自动注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven  conversion-service="conversionService"/>
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -47,5 +47,18 @@
     <mvc:resources mapping="/images/**" location="/img/" cache-period="31556926"/>
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
     <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
+
+
+    <!-- 自定义日期类型转换器-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.app.controller.converter.DateConverter"> </bean>
+            </list>
+        </property>
+    </bean>
+    <!-- 全局异常处理器-->
+    <bean class="com.app.Exception.CustomExceptionResolver"/>
+
 
 </beans>
