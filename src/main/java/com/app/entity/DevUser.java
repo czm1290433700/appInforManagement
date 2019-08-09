@@ -8,12 +8,18 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class DevUser {
-@Id
+
+  @Id//标识主键
+  @GeneratedValue(strategy = GenerationType.IDENTITY) //自增长策略
   private Long id;
-  private String devCode;
+  private String enable;
+  private String state;
   @NotBlank(message = "昵称不能为空",groups = {ValidGroup1.class})
   @Size(min=2,max=10,message="昵称的长度在2~10之间!",groups = {ValidGroup1.class})
   private String devName;
@@ -36,12 +42,20 @@ public class DevUser {
   }
 
 
-  public String getDevCode() {
-    return devCode;
+  public String getEnable() {
+    return enable;
   }
 
-  public void setDevCode(String devCode) {
-    this.devCode = devCode;
+  public void setEnable(String enable) {
+    this.enable = enable;
+  }
+
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
   }
 
 

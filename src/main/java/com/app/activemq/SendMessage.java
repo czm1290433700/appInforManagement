@@ -12,8 +12,8 @@ import com.aliyuncs.profile.IClientProfile;
 public class SendMessage {
 	private static String accessKeyId = "LTAIml1rSgw4YH2K";//你的accessKeyId,参考本文档步骤2
 	private static String accessKeySecret = "L4LePbZkPRSNwJa652iGFuN6z3BTX2";//你的accessKeySecret，参考本文档步骤2
-	private static String setSignName = "燕宝真美";//你的签名名称
-	private static String dayutemplateCode = "SMS_171186277";//你的模板CODE
+	private static String setSignName = "APP信息管理平台";//你的签名名称
+	private static String dayutemplateCode = "SMS_172165404";//你的模板CODE
 
 	public static void sendMessages(String code,String phone){
 		//设置超时时间-可自行调整

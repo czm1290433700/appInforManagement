@@ -46,7 +46,7 @@ public class SendEmail {
                    new InternetAddress(to));
 
            // Set the subject
-           message.setSubject("梦境网激活邮件通知");
+           message.setSubject("【APP信息管理平台】激活邮件通知");
 
            // Set the content
            message.setContent( "<a href=\"http://localhost:8080/activecode?email="+email+"&validateCode="+validateCode+"\" target=\"_blank\">请于24小时内点击激活</a>","text/html;charset=gb2312");
